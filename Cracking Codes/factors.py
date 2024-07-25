@@ -32,6 +32,11 @@ def print_factor_list(fact_list):
         else:
             print(i)
 
+def gcd(a, b):
+    while a != 0:
+        a, b = b % a, a
+    return b
+
 factor_number = 24
 list_of_facts_1 = factor(factor_number)
 print('List of factors for the number %s : ' % (factor_number), end='')
@@ -48,3 +53,7 @@ print('The common factors of both are : ', end='')
 print_factor_list(intersected)
 
 print('The greatest common factor is : %s' % (max(intersected)))
+print()
+
+print('The GCD using Extended Euclidean Algorithm : %s' % (gcd(24, 30)))
+print()
