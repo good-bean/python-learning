@@ -1,0 +1,27 @@
+Affine Cipher Encryption
+[plain text] -> multiply by key A -> add key B -> mod by symbol set size -> [ciper text]
+
+Decryption
+[cipher text] -> subtract key B -> multiply key A mod inverse -> mod by symbol set size -> [plain text]
+
+plain_message = string
+encrypt(text, key a, key b):
+    modded_message = ((text * key a) + key b) % len(symbol_set)
+    return modded_message
+encrypted_message = encrypt(plain_message, a, b)
+print(encrypted_message)
+
+decrypt(text, key a, key b):
+    modded_message = ((text - key b) * key b inverse) % len(symbol_set)
+    return modded_message
+decrypted_message = decrypt(encrypted_message, a, b)
+print(decrypted_message)
+
+mod inverses
+1 isn't the mod inverse of 5 mod 7, because (5 * 1) % 7 = 5
+2 isn't the mod inverse of 5 mod 7, because (5 * 2) % 7 = 3
+3 is the mod inverse of 5 mod 7, because (5 * 3) % 7 = 1
+
+1 isn't the mod inverse of 53 mod 66, because (53 * 1) % 66 = 53
+...
+5 is the mod inverse of 53 mod 66, because (53 * 5) % 66 = 1
